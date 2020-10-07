@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainBackgroundLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MapActivity">
+
+        <com.mapbox.mapboxsdk.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:mapbox_cameraTargetLat="34.01591350351023"
+            app:mapbox_cameraTargetLng="-118.4945560781314"
+            app:mapbox_cameraZoom="14.5">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:id="@+id/backroundToClick"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ListView
+                    android:id="@+id/routeList"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginEnd="16dp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.mapbox.mapboxsdk.maps.MapView>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fabs_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/calibrateFButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="4dp"
+            android:clickable="true"
+            android:scaleType="fitEnd"
+            android:scaleX=".8"
+            android:scaleY=".8"
+            app:backgroundTint="#5F6BA5"
+            app:layout_constraintBottom_toTopOf="@+id/calibrateText"
+            app:layout_constraintEnd_toStartOf="@+id/layersFButton"
+            app:maxImageSize="40dp"
+            app:srcCompat="@drawable/calibration" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/layersFButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:clickable="true"
+            android:scaleX="1.1"
+            android:scaleY="1.1"
+            app:backgroundTint="#5F6BA5"
+            app:layout_constraintBottom_toTopOf="@+id/layersText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:maxImageSize="50dp"
+            app:rippleColor="#303030"
+            app:srcCompat="@drawable/layers_blank" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/trackFButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="4dp"
+            android:clickable="true"
+            android:scaleX=".8"
+            android:scaleY=".8"
+            app:backgroundTint="#5F6BA5"
+            app:layout_constraintBottom_toTopOf="@+id/trackText"
+            app:layout_constraintStart_toEndOf="@+id/layersFButton"
+            app:maxImageSize="35dp"
+            app:srcCompat="@drawable/cursor" />
+
+        <TextView
+            android:id="@+id/layersText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Routes"
+            android:textColor="#4D5594"
+            android:textSize="12sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/layersFButton"
+            app:layout_constraintStart_toStartOf="@+id/layersFButton" />
+
+        <TextView
+            android:id="@+id/trackText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Track"
+            android:textColor="#4D5594"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/trackFButton"
+            app:layout_constraintStart_toStartOf="@+id/trackFButton" />
+
+        <TextView
+            android:id="@+id/calibrateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Calibrate"
+            android:textColor="#4D5594"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/calibrateFButton"
+            app:layout_constraintStart_toStartOf="@+id/calibrateFButton" />
+
+        <ImageView
+            android:id="@+id/memoImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitEnd"
+            android:tint="#80000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/trackFButton"
+            app:srcCompat="@drawable/memo" />
+
+        <ImageView
+            android:id="@+id/zoomImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:tint="#DAFFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/memoImage"
+            app:layout_constraintEnd_toEndOf="@+id/memoImage"
+            app:layout_constraintStart_toStartOf="@+id/memoImage"
+            app:layout_constraintTop_toTopOf="@+id/memoImage"
+            app:srcCompat="@android:drawable/ic_menu_zoom" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/largeMemoImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX=".8"
+        android:scaleY=".8"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/memo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

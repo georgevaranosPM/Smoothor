@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Smoothor</string>
+
+    <string name="bad">That\'s a bad road!</string>
+    <string name="med">That\'s an OK road.</string>
+    <string name="good">That\'s a pretty good road!</string>
+    <string name="neutral">Move the vehicle!</string>
+    <string name="access_token">pk.eyJ1IjoiZ2VvcmdldmFyIiwiYSI6ImNrMnl3cWs4ZzAzM2wzZHFqdHkyaDBsY2oifQ.M8NRlEvaxcbVl1DrgdjN_A</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
